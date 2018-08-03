@@ -65,7 +65,7 @@ namespace EmployeeManagement.Controllers
         #region POST_CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,EmailId,DepartmentId")] tblEmployee tblEmployee)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,EmailId,Address,Qualification,DepartmentId")] tblEmployee tblEmployee)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace EmployeeManagement.Controllers
         #region POST_EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailId,DepartmentId")] tblEmployee tblEmployee)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailId,Address,Qualification,DepartmentId")] tblEmployee tblEmployee)
         {
             if (ModelState.IsValid)
             {

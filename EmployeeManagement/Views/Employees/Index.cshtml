@@ -22,6 +22,12 @@
             @Html.DisplayNameFor(model => model.EmailId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DepartmentId)
         </th>
         <th></th>
@@ -40,13 +46,18 @@
                 @Html.DisplayFor(modelItem => item.EmailId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
                 @{
                     EmployeeManagement.Model1 db = new EmployeeManagement.Model1();
                     var Item = db.tblDepartments.Where(x => x.Id == item.DepartmentId).SingleOrDefault().DepartmentName;
 
                     @Html.DisplayFor(modelItem => Item);
                 }
-
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

@@ -25,6 +25,14 @@ namespace EmployeeManagement
         [Required]
         public string EmailId { get; set; }
 
+        [StringLength(1500)]
+        [Required]
+        public string Address { get; set; }
+
+        [StringLength(500)]
+        [Required]
+        public string Qualification { get; set; }
+
         [Required]
         public long? DepartmentId { get; set; }
     }

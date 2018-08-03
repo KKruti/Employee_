@@ -1,0 +1,41 @@
+[33mcommit bcb5767084b6cfe7cbdd8a3239350ec66a86c20f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Kruti Mistry <Kruti@promact.com>
+Date:   Thu Aug 2 14:27:30 2018 +0530
+
+    Add project files.
+
+[33mcommit 1d2a51e6201c2d97d96b13a889825d6a646311c3[m
+Author: Kruti <Kruti@DOMAIN>
+Date:   Thu Aug 2 14:27:28 2018 +0530
+
+    Add .gitignore and .gitattributes.
+
+[33mcommit b36a888c16a3fbc62cbf9832dabb68d3fc69624b[m
+Author: Kruti <kruti@promactinfo.com>
+Date:   Thu Aug 2 17:41:18 2018 +0530
+
+    Revert "Revert "Revert "Initial commit"""
+    
+    This reverts commit f4b2da2c376faef1fd6072d16d31a78c913ac826.
+
+[33mcommit f4b2da2c376faef1fd6072d16d31a78c913ac826[m
+Author: Kruti <kruti@promactinfo.com>
+Date:   Thu Aug 2 17:28:27 2018 +0530
+
+    Revert "Revert "Initial commit""
+    
+    This reverts commit 80892f0b5127077d0a0b815e12aa0b2f29ad8599.
+
+[33mcommit 80892f0b5127077d0a0b815e12aa0b2f29ad8599[m
+Author: Kruti <kruti@promactinfo.com>
+Date:   Thu Aug 2 17:28:07 2018 +0530
+
+    Revert "Initial commit"
+    
+    This reverts commit 9bc0b2c456c7e58e0e0dc195de014a53869242b8.
+
+[33mcommit 9bc0b2c456c7e58e0e0dc195de014a53869242b8[m
+Author: KKruti <42031402+KKruti@users.noreply.github.com>
+Date:   Thu Aug 2 16:13:12 2018 +0530
+
+    Initial commit

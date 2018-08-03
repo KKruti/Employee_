@@ -18,7 +18,23 @@ namespace EmployeeManagement.Controllers
         #region GET_INDEX
         public ActionResult Index()
         {
-            return View(db.tblDepartments.ToList());
+            return View();
+        }
+
+        #endregion
+
+        #region JSON_REQ_GETALLDATA
+        public JsonResult GetAllData()
+        {
+            var _data = (from c in db.tblDepartments
+                         select new
+                         {
+                             Id = c.Id,
+                             DepartmentName = c.DepartmentName
+                         }).ToList();
+
+            return Json(_data, JsonRequestBehavior.AllowGet);
+
         }
         #endregion
 
@@ -109,18 +125,6 @@ namespace EmployeeManagement.Controllers
         }
         #endregion
 
-        #region POST_DELETE
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tblDepartment tblDepartment = db.tblDepartments.Find(id);
-            db.tblDepartments.Remove(tblDepartment);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        #endregion
-
         #region DISPOSE
         protected override void Dispose(bool disposing)
         {
@@ -142,7 +146,7 @@ namespace EmployeeManagement.Controllers
 
                 if (Check > 0)
                 {
-                    return Json("Department Already Exist", JsonRequestBehavior.AllowGet);
+                    return Json(false, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
@@ -166,5 +170,43 @@ namespace EmployeeManagement.Controllers
         }
         #endregion
 
+        #region POST_JSON_DELETE
+        [HttpPost]
+        public JsonResult Delete(tblDepartment _dep)
+        {
+            try
+            {
+                var _resp = db.tblDepartments.Where(x => x.Id == _dep.Id).SingleOrDefault();
+                db.tblDepartments.Remove(_resp);
+                db.SaveChanges();
+
+                return Json(200, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(300, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
+        #region POST_JSON_CREATE
+        [HttpPost]
+        public JsonResult CreateDepartment(tblDepartment _dep)
+        {
+            try
+            {
+                tblDepartment _obj = new tblDepartment();
+                _obj.DepartmentName = _dep.DepartmentName;
+                db.tblDepartments.Add(_obj);
+                db.SaveChanges();
+
+                return Json(200, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(300, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
     }
 }
