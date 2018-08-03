@@ -15,13 +15,14 @@ namespace EmployeeManagement.Controllers
     {
         private Model1 db = new Model1();
 
-        
+        #region GET_INDEX
         public ActionResult Index()
         {
             return View(db.tblDepartments.ToList());
         }
+        #endregion
 
-        // GET: Departments/Details/5
+        #region GET_DETAILS
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,16 +36,16 @@ namespace EmployeeManagement.Controllers
             }
             return View(tblDepartment);
         }
+        #endregion
 
-        // GET: Departments/Create
+        #region GET_CREATE
         public ActionResult Create()
         {
             return View();
         }
+        #endregion
 
-        // POST: Departments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        #region POST_CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DepartmentName")] tblDepartment tblDepartment)
@@ -58,8 +59,9 @@ namespace EmployeeManagement.Controllers
 
             return View(tblDepartment);
         }
+        #endregion
 
-        // GET: Departments/Edit/5
+        #region GET_EDIT
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,10 +75,9 @@ namespace EmployeeManagement.Controllers
             }
             return View(tblDepartment);
         }
+        #endregion
 
-        // POST: Departments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        #region POST_EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,DepartmentName")] tblDepartment tblDepartment)
@@ -90,7 +91,9 @@ namespace EmployeeManagement.Controllers
             return View(tblDepartment);
         }
 
-        // GET: Departments/Delete/5
+        #endregion
+
+        #region GET_DELETE
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,8 +107,9 @@ namespace EmployeeManagement.Controllers
             }
             return View(tblDepartment);
         }
+        #endregion
 
-        // POST: Departments/Delete/5
+        #region POST_DELETE
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -115,7 +119,9 @@ namespace EmployeeManagement.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        #endregion
 
+        #region DISPOSE
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,6 +131,9 @@ namespace EmployeeManagement.Controllers
             base.Dispose(disposing);
         }
 
+        #endregion
+
+        #region CHECK_DUPLICATION
         public JsonResult IsAvailable(string DepartmentName, long Id = 0)
         {
             if (Id == 0)
@@ -155,5 +164,7 @@ namespace EmployeeManagement.Controllers
             }
 
         }
+        #endregion
+
     }
 }
